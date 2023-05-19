@@ -74,6 +74,7 @@ Open the cloned (or downloaded) repository in any source code editor.
 - Node.js [Version 16.18.1](https://nodejs.org/en/blog/release/v16.18.1/)
 - Express.js:[Express.js](https://expressjs.com/en/starter/installing.html)
 - Bcryptjs: [2.4.3](https://www.npmjs.com/package/bcryptjs)
+- Bootstrap: [5.2.1](https://getbootstrap.com/)
 - Connect Session Store using Sequelize: [7.0.4](https://www.npmjs.com/package/connect-session-sequelize)
 - Dotenv: [8.6.0](https://www.npmjs.com/package/dotenv)
 - Express: [4.17.1](https://www.npmjs.com/package/express)
@@ -84,6 +85,8 @@ Open the cloned (or downloaded) repository in any source code editor.
 - Sequelize: [6.29.3](https://www.npmjs.com/package/sequelize)
 - Postman: [Postman](https://www.postman.com/)
 - Luxon: [Luxon](https://moment.github.io/luxon/)
+- Highlight.js: [Hightlight.js](https://highlightjs.org/)
+https://highlightjs.org/
 - License Badge: [Shields.io](https://shields.io/)
 - Visual Studio Code: [Website](https://code.visualstudio.com/)
 

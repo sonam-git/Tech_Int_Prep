@@ -22,17 +22,18 @@
   </div>
 <br>
 {{!-- Display the comments if there is one --}}
-{{#if comments}}
+{{#if post.comments}}
    <section class="card">
     <div class="card-header">
     <h3>Comments Dashboard</h3></div>
 
 <div class="card-body">
-  {{#each comments}}
+  {{#each post.comments}}
    <div>
       <p>
       {{comment_text}}</p>
       <p class="comment">&mdash; {{user.username}}, {{format_date createdAt}}</p></div>
+       <button class="delete-comment-btn btn btn-danger" data-comment-id="{{id}}">x</button>
      {{/each}}
    </div>
    </section>
@@ -46,15 +47,14 @@
  <div class ="card-body">
   <input type="hidden" name="post-id" value="{{post.id}}"/>
      {{!-- <label class="form-label" for="comment-body">Comment</label> --}}
-  <input type="text" name="comment-body" class="form-control" placeholder="Write your comment here"/>
+  <input type="text" name="comment-body" class="form-control" placeholder="Write your comment here" id="commentText"/>
   {{!-- <textarea type="text" name="comment-body"  class="form-control" placeholder="Write your comment"
       rows="10"></textarea> --}}
   <br>
-  <button type="submit" class="btn btn-primary">Add Comment</button>
+  <button type="submit" class="btn btn-primary" id="addComment">Add Comment</button>
    <button id="likeButton" class="btn btn-primary ">Like 👍</button>
  </div>
   </form>
-  
    <script src="/js/comment.js"></script>
    {{/if}}
 

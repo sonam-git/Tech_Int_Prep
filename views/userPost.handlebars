@@ -6,16 +6,16 @@
     <div class="row">
       <div class="card">
         <br />
-        <span>Question
-          <a
-            class="card-header flex-row justify-space-between"
-            href="/dashboard/edit/{{id}}"
-          >✍️ Edit</a>
+         <div class="card-header flex-row justify-space-between">
+         <h3>Question</h3>
+         <div>
+        
           Posted by
           {{user.username}}
           on
           {{format_date createdAt}}
-        </span>
+       </div>
+        </div>
         <br />
         <h4>{{title}}</h4>
         <br />
@@ -27,6 +27,12 @@
             {{body}}
           </code>
         </pre>
+<div class="d-grid gap-2 col-6 mx-auto">
+        <a href="/dashboard/edit/{{id}}" class="btn btn-success btn-md " role="button" >Edit This Post 	
+➜ ✍️ </a>  
+<a href="/post/{{id}}" class="btn btn-success btn-md " role="button" >Comment This Post 	
+➜ 💬</a></div>
+<br>
       </div>
     </div>
     <br>

@@ -22,11 +22,34 @@ const commentFormHandler = async function (event) {
       },
     });
   // replaces the current page location with /dashboard.
-  document.location.replace("/dashboard");
+  document.location.reload();
   }
 };
+
+// Get all delete buttons
+const deleteButtons = document.querySelectorAll('.delete-comment-btn');
+
+// Function to handle delete action
+const deleteCommentHandler = async () => {
+  // retrieves the value of the post-id field
+  const post_id = document.querySelector('input[name="post-id"]').value;
+
+  // sends a DELETE request to the server at /api/post/${post_id} using the fetch method.
+  await fetch(`/api/comments/${post_id}`, {
+    method: "DELETE",
+  });
+  // replaces the current page location with /dashboard.
+  document.location.replace("/dashboard");
+};
+
+deleteButtons.addEventListener('click',deleteCommentHandler);
 
 // addEventListener method attaches the commentFormHandler function to the "submit",it is executed whenever the user submits a comment.
 document
   .querySelector("#new-comment-form")
   .addEventListener("submit", commentFormHandler);
+
+
+  
+
+  

@@ -101,6 +101,11 @@ h4{
 .card-header{
   box-shadow: 8px 3px 3px rgb(33, 30, 30);
 }
+p.comment
+{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+}
 /********** Media Queries ***********/
 
 @media (max-width: 768px) { 

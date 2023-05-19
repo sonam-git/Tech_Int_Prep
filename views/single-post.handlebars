@@ -27,14 +27,17 @@
     <div class="card-header">
     <h3>Comments Dashboard</h3></div>
 
-<div class="card-body">
+<div class="comment-list card-body">
   {{#each post.comments}}
-   <div>
-      <p>
+   <div class="comment">
+      <br>
+          <p class="comment">Posted by: {{user.username}},on {{format_date createdAt}}</p></div>
+      <p>&mdash;
       {{comment_text}}</p>
-      <p class="comment">&mdash; {{user.username}}, {{format_date createdAt}}</p></div>
-       <button class="delete-comment-btn btn btn-danger" data-comment-id="{{id}}">x</button>
+          <button class="delete-btn btn btn-danger" data-comment-id="{{id}}">Delete</button>
+           
      {{/each}}
+   
    </div>
    </section>
  {{/if}}

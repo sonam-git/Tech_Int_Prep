@@ -41,25 +41,24 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-// DELETE route to delete a comment by ID
-router.delete("/", withAuth, async (req, res) => {
+// Delete a comment by ID
+router.delete("/:id", withAuth, async (req, res) => {
   try {
-    const commentId = req.params.id;
+    const commentData = await Comment.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
 
-    // Find the comment by ID
-    const comment = await Comment.findByPk(commentId);
-
-    if (!comment) {
-      return res.status(404).json({ message: 'Comment not found' });
+    if (!commentData) {
+      res.status(404).json({ message: "No comment found with this id!" });
+      return;
     }
 
-    // Delete the comment
-    await comment.destroy();
-
-    res.status(204).end(); // Successful deletion, send an empty response
+    res.status(200).json(commentData);
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: 'Failed to delete the comment' });
+    res.status(500).json(err);
   }
 });
 

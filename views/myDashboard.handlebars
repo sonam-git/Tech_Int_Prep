@@ -1,0 +1,28 @@
+<br />
+<br />
+{{! Display all the posts/ can see without login }}
+<div class="container">
+  {{#each posts}}
+    <div class="row">
+      <div class="card">
+        <br />
+           <div class="card-header flex-row justify-space-between">
+        <h3>Question</h3>
+        <div>
+      Posted by {{user.username}} on {{format_date createdAt}}
+    </div>
+        </div>
+         <br />
+        <h4>{{title}}</h4>
+        <p><a href="/post/{{id}}">comment on this post? 💬</a></p>
+        <h3>Answer</h3>
+        <pre>
+          <code class="language-js">
+            {{body}}
+          </code>
+        </pre>
+      </div>
+    </div>
+    <br>
+  {{/each}}
+</div>

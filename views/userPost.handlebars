@@ -1,0 +1,35 @@
+<br />
+<br />
+{{! Display the post created by logged in user }}
+<div class="container">
+  {{#each posts}}
+    <div class="row">
+      <div class="card">
+        <br />
+        <span>Question
+          <a
+            class="card-header flex-row justify-space-between"
+            href="/dashboard/edit/{{id}}"
+          >✍️ Edit</a>
+          Posted by
+          {{user.username}}
+          on
+          {{format_date createdAt}}
+        </span>
+        <br />
+        <h4>{{title}}</h4>
+        <br />
+        <br />
+        <p id="likesCount">{{likes}} likes</p>
+        <span>Answer</span>
+        <pre>
+          <code class="language-js">
+            {{body}}
+          </code>
+        </pre>
+      </div>
+    </div>
+    <br>
+  {{/each}}
+ 
+</div>

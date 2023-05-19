@@ -1,0 +1,60 @@
+<br>
+{{!-- Display user post --}}
+<div class="container">
+<div class="row">
+      <div class="card">
+        <br>
+    <div class="card-header flex-row justify-space-between">
+    <h4>{{post.title}}</h4>
+    <div>
+      Posted by {{post.user.username}} on {{format_date post.createdAt}}
+    </div>
+     <p id="likesCount"> {{likes}} Likes</p>
+</div>
+<div class="card-body">
+  <pre>
+          <code class="language-js">
+  {{post.body}}
+     </code>
+        </pre>
+</div>
+ </div>
+  </div>
+
+{{!-- Display the comments if there is one --}}
+{{#if comments}}
+   <section class="card">
+    <div class="card-header">
+    <h3>Comments</h3></div>
+
+<div class="card-body">
+  {{#each comments}}
+   <div>
+      <p>
+      {{comment_text}}</p>
+      <p>&mdash; {{user.username}}, {{format_date createdAt}}</p></div>
+     {{/each}}
+   </div>
+   </section>
+ {{/if}}
+
+{{!-- if user is logged in place to drop their comment --}}
+{{#if logged_in}}
+<br>
+ <form id="new-comment-form" class="card-body">
+<hr>
+ <div class ="card-body">
+  <input type="hidden" name="post-id" value="{{post.id}}"/>
+     <label class="form-label" for="comment-body">Comment</label>
+  <input type="text" name="comment-body" class="form-input"/>
+  <br>
+  <button type="submit" class="btn btn-primary">Add Comment</button>
+   <button id="likeButton" class="btn btn-primary ">Like 👍</button>
+ </div>
+  </form>
+  
+   <script src="/js/comment.js"></script>
+   {{/if}}
+
+ </div>
+  

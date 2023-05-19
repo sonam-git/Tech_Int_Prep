@@ -1,0 +1,121 @@
+<!--Display Dashboard only for logged in user -->
+<html lang="en" class="h-100">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech In Prep</title>
+    {{! Linked to highlight.js }}
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css"
+    />
+    {{! Linked to Bootstrap }}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    {{! Linked to fontawesome }}
+    <script
+      src="https://kit.fontawesome.com/e84ea757da.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAAAAAAABEAEQAAAAABEQAREAAAABEQAAERAAABEQAAABEQABEQAAAAAREAAREAAAAREAAAERAAAREAAAABEQAREAAAAAARABEAAAAAAAEAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP2/AAD5nwAA8Y8AAOPHAADH4wAAj/EAAMfjAADjxwAA8Y8AAPmfAAD9vwAA//8AAP//AAD//wAA"
+      rel="icon"
+      type="image/x-icon"
+    />
+    {{! Link to custom css }}
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <!-- Body Section -->
+  <body class="d-flex flex-column h-100">
+
+    <!-- bootstrap navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container-fluid justify-content-between no-pad-right">
+        <a class="navbar-brand" href="/"><img src="../../images/Tech_Int_Prep _logo.png" width="100%" height="50" alt="App Logo" /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/" href="">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/aboutUs">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/myDashboard">Dashboard</a>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="/dashboard/new">Add
+                Question</a></li>
+            <li class="nav-item"><a
+                class="nav-link"
+                href="/dashboard"
+              >Edit Question</a></li>
+            <a
+              class="btn btn-outline-primary logout-btn log-btn"
+              id="logout-link"
+              href="#"
+              role="button"
+            >Log Out</a>
+
+          </ul>
+
+
+        </div>
+
+      </div>
+
+    </nav>
+
+    {{! this is where everything else should display }}
+    <main class="col-auto">
+      {{{body}}}
+    </main>
+    <div class="clear">
+
+      <footer
+        id="sticky-footer"
+        class="footer py-4 bg-transparent text-50 footer-custom"
+      >
+        <div class="container text-center">
+          <small>Copyright &copy;
+            <a href="https://github.com/">All rights reserved by Tech Int Prep Team</a></small>
+        </div>
+      </footer>
+    </div>
+    {{! highlight }}
+    <script
+      src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>hljs.highlightAll();</script>
+    <script src="../js/logout.js"></script>
+
+  </body>
+
+</html>

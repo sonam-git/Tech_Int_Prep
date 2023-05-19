@@ -3,7 +3,7 @@
 
 ## Description.
 
-Project 2 is Heroku deployed application, which serves as a CMS-style platform designed for the users that allows to publish their question as post. Additionally, the comment section below, allows users to interact and engage with users question. The application follows the MVC paradigm, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+Technical Interview Preparation aka Tech Int Prep is a simple Heroku deployed application, which serves as a CMS-style platform designed for the users that allows to publish their question as post. Additionally, the comment section below, allows users to interact and engage with users question in order to share their coding knoweldge. The application follows the MVC paradigm, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ## Table of Contents:
 - [Overview](#Overview)

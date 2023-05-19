@@ -86,7 +86,6 @@ Open the cloned (or downloaded) repository in any source code editor.
 - Postman: [Postman](https://www.postman.com/)
 - Luxon: [Luxon](https://moment.github.io/luxon/)
 - Highlight.js: [Hightlight.js](https://highlightjs.org/)
-https://highlightjs.org/
 - License Badge: [Shields.io](https://shields.io/)
 - Visual Studio Code: [Website](https://code.visualstudio.com/)
 

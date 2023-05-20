@@ -1,7 +1,8 @@
 // import require modules
 const User = require('./User');
 const Post = require('./Post');
-const Comment = require("./Comment");
+const Comment = require('./Comment');
+const Like = require('./Like');
 
 // one-to-many relationship between the User and Post models
 User.hasMany(Post, {
@@ -36,5 +37,15 @@ Comment.belongsTo(Post, {
   foreignKey: "post_id",
   onDelete: "CASCADE",
 });
+// // Define the association between User and Like models
+// User.hasMany(Like, {
+//   foreignKey: 'user_id',
+//   onDelete: 'CASCADE',
+// });
+// // Define the association between Post and Like models
+// Post.hasMany(Like, {
+//   foreignKey: 'post_id',
+//   onDelete: 'CASCADE',
+// });
 
 module.exports = { User, Post, Comment };

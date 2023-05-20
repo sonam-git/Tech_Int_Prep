@@ -1,65 +1,86 @@
-<br>
-{{!-- Display user post --}}
+<br />
+{{! Display user post }}
 <div class="container">
-<div class="row">
-      <div class="card">
-        <br>
-    <div class="card-header flex-row justify-space-between">
-    <h4>{{post.title}}</h4>
-    <div>
-      Posted by {{post.user.username}} on {{format_date post.createdAt}}
-    </div>
-     <p id="likesCount"> {{likes}} Likes</p>
-</div>
-<div class="card-body">
-  <pre>
+  <div class="row">
+    <div class="card">
+      <br />
+      <div class="card-header flex-row justify-space-between">
+        <h4>{{post.title}}</h4>
+        <div>
+          Posted by
+          {{post.user.username}}
+          on
+          {{format_date post.createdAt}}
+        </div>
+        {{! Display the current likes count }}
+      </div>
+      <div class="card-body">
+        <pre>
           <code class="language-js">
-  {{post.body}}
-     </code>
+            {{post.body}}
+          </code>
         </pre>
-</div>
- </div>
+         <br>
+        <p>👍 : <span id="likesCount">{{post.likes}} </span> Likes</p>
+        <button
+          id="likeButton"
+          class="btn btn-primary"
+          data-post-id="{{post.id}}"
+        >Like 👍</button>
+      </div>
+
+    </div>
   </div>
-<br>
-{{!-- Display the comments if there is one --}}
-{{#if post.comments}}
-   <section class="card">
-    <div class="card-header">
-    <h3>Comments Dashboard</h3></div>
+  <br />
+  {{! Display the comments if there is one }}
+  {{#if post.comments}}
+    <section class="card">
+      <div class="card-header">
+        <h3>Comments Dashboard</h3></div>
 
-<div class="comment-list card-body">
-  {{#each post.comments}}
-   <div class="comment">
-      <br>
-          <p class="comment">Posted by: {{user.username}},on {{format_date createdAt}}</p></div>
-      <p>&mdash;
-      {{comment_text}}</p>
-          <button class="delete-btn btn btn-danger" data-comment-id="{{id}}">Delete</button>
-           
-     {{/each}}
-   
-   </div>
-   </section>
- {{/if}}
+      <div class="comment-list card-body">
+        {{#each post.comments}}
+          <div class="comment">
+            <br />
+            <p class="comment">Posted by:
+              {{user.username}},on
+              {{format_date createdAt}}</p></div>
+          <p>&mdash;
+            {{comment_text}}</p>
+          <button
+            class="delete-btn btn btn-danger"
+            data-comment-id="{{id}}"
+          >Delete</button>
+          <hr />
 
-{{!-- if user is logged in place to drop their comment --}}
-{{#if logged_in}}
-<br>
- <form id="new-comment-form" class="card-body">
-<hr>
- <div class ="card-body">
-  <input type="hidden" name="post-id" value="{{post.id}}"/>
-     {{!-- <label class="form-label" for="comment-body">Comment</label> --}}
-  <input type="text" name="comment-body" class="form-control" placeholder="Write your comment here" id="commentText"/>
-  {{!-- <textarea type="text" name="comment-body"  class="form-control" placeholder="Write your comment"
-      rows="10"></textarea> --}}
-  <br>
-  <button type="submit" class="btn btn-primary" id="addComment">Add Comment</button>
-   <button id="likeButton" class="btn btn-primary ">Like 👍</button>
- </div>
-  </form>
-   <script src="/js/comment.js"></script>
-   {{/if}}
+        {{/each}}
 
- </div>
-  
+      </div>
+    </section>
+  {{/if}}
+
+  {{! if user is logged in place to drop their comment }}
+  {{#if logged_in}}
+    <form id="new-comment-form" class="card-body">
+      <hr />
+      <div class="card-body">
+        <input type="hidden" name="post-id" value="{{post.id}}" />
+        {{! <label class="form-label" for="comment-body">Comment</label> }}
+        <input
+          type="text"
+          name="comment-body"
+          class="form-control"
+          placeholder="Write your comment here"
+          id="commentText"
+        />
+        {{! <textarea type="text" name="comment-body"  class="form-control" placeholder="Write your comment"
+      rows="10"></textarea> }}
+        <br />
+        <button type="submit" class="btn btn-primary" id="addComment">Add
+          Comment</button>
+      </div>
+    </form>
+    <script src="/js/comment.js"></script>
+  {{/if}}
+</div>
+<script src="/js/like.js"></script>

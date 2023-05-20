@@ -67,4 +67,26 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
+// like count router
+router.post('/:postId/like', async (req, res) => {
+  try {
+    const postId = req.params.postId;
+    const post = await Post.findByPk(postId);
+
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+
+    // Increment the likes count
+    post.likes += 1;
+    await post.save();
+
+    res.status(200).json({ likes: post.likes });
+  } catch (error) {
+    console.error('Error liking post:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
+
 module.exports = router;

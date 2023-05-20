@@ -61,34 +61,3 @@ document
 .querySelector(".comment-list")
 .addEventListener("click", deleteCommentHandler);
 
-
-  
-
-// const deleteComment = async (commentId) => {
-//   try {
-//     const response = await fetch(`/api/comments/${commentId}`, {
-//       method: "DELETE",
-//     });
-
-//     if (response.ok) {
-//       alert ("Comment deleted successfully.");
-//       console.log("Comment deleted successfully.");
-//       // Handle any further actions or UI updates after successful deletion
-//       document.location.reload();
-//     } else {
-//      alert("You are only allowed to delete the comment you posted.");
-//       // Handle the error or display an error message to the user
-//     }
-//   } catch (error) {
-//     console.log("An error occurred while deleting the comment:", error);
-//     // Handle the error or display an error message to the user
-//   }
-// };
-
-// // Attach the event listener to the delete buttons
-// document.addEventListener("click", function (event) {
-//   if (event.target.classList.contains("delete-btn")) {
-//     const commentId = event.target.getAttribute("data-comment-id");
-//     deleteComment(commentId);
-//   }
-// }); 

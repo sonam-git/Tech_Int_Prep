@@ -38,8 +38,8 @@ The challenge of building this application involved creating a scalable and robu
 8. Account Log out: click on "logout" in the navigation menu.
 9. You can only see the Home page, About us, sign up button and Log in button unless you sign up or log into the app.
 
-## Deployed Application Link:
-[Deployed Application Link:](https://sj-mvc.herokuapp.com)
+## Deployed Application Link (Heroku):
+[Deployed Application Link:](https://tech-ing-prep.herokuapp.com/)
 
 ## GitHub Repository:
 [GitHub Repository:](https://github.com/sonam-git/Tech_Int_Prep)

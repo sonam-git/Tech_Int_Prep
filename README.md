@@ -47,21 +47,23 @@ The challenge of building this application involved creating a scalable and robu
 ## Screenshots:
 
 ### Figure 1. Home
-
+![Homepage](./public/images/homepage.png)
 ### Figure 2. Sign up
-
-
+![Signup](./public/images/signup.png)
 ### Figure 3. Login
-
-
+![Login](./public/images/login.png)
 ### Figure 4. Dashboard
-
+![dashboard](./public/images/dashboard.png)
 ### Figure 5. Create a Post
-
+![edit post](./public/images/add-question.png)
 ### Figure 6. Edit a Post
-
+![edit post](./public/images/edit.png)
 ### Figure 7. Add / View Comments
-
+![comment post](./public/images/comment.png)
+### Figure 8. About Us
+![aboutus](./public/images/aboutus.png)
+### Figure 9. Responsive view
+![aboutus](./public/images/responsive.png)
 
 ## Installation Process
 1. Clone the Repository from GitHub 

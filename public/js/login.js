@@ -24,7 +24,7 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       console.log("response", response);
       // If login is successful, redirect to the dashboard
-      document.location.replace("/dashboard");
+      document.location.replace("/");
     } else {
       console.error();
       // If login fails, display an error message using SweetAlert2

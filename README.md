@@ -27,22 +27,22 @@ The challenge of building this application involved creating a scalable and robu
 
 #### Visit the homepage, "Login" or "Sign Up" for an account if you don't already have one.
 
-1. Option: A) Account login: click on "login" in the navigation menu - enter Username and Password then click "Sign In" to proceed.
+1. Option: A) Account login: click on "login" in the navigation menu - enter Username and Password then click "Log In" to proceed.
 1. Option: B) Account Sign Up: click on "Sign Up" in the navigation menu - once open, enter Username and Password then click "Sign Up" to proceed.
-2. Once you have an account, you can create blog posts and comment on other users' posts.
-3. Create a blog post: click on the "dashboard" option in the navigation menu and click "Create New Post."
-4. Enter a title and contents for your Blog Contribution, then click "Create Post" to save and publish.
-5. View existing blog posts by clicking on "Home" in the navigation menu.
-6. Comment: to view or "add a new comment" go to any blog post in the Home page, click on the title or icon near any blog post - title, you may view the comment history as well as add a new comments.
-7. Edit or delete your blog post: click on the "dashboard" option in the navigation menu and select the post you wish to edit or delete by clicking on the edit icon on the right side of the title or title itself.
+2. Once you have an account, you can create question,answer and comment on other users question/answers as well as edit their answer to fix the problem.
+3. Create a Question: click on the "dashboard" option in the navigation menu and click "Add Question."
+4. Enter a question and answer for your post Contribution, then click "Post Question" to save and publish.
+5. View existing question and answer by all the users clicking on "Dashboard" in the navigation menu.
+6. Comment: to view or "add a new comment" go to any  post in the Dashboard page, click on the button "Comment this Post"  attached to the blog post, you may view the comment history as well as add a new comments, and like the post.
+7. Edit or delete your question: click on the "Edit Question" option in the navigation menu and select the post you wish to edit or delete by clicking on the edit this post button attached to the corresponding post.
 8. Account Log out: click on "logout" in the navigation menu.
-9. You can only see the list of blog post unless you sign up or log into the app.
+9. You can only see the Home page, About us, sign up button and Log in button unless you sign up or log into the app.
 
 ## Deployed Application Link:
 [Deployed Application Link:](https://sj-mvc.herokuapp.com)
 
 ## GitHub Repository:
-[GitHub Repository:](https://github.com/sonam-git/MVC_Tech_Blog)
+[GitHub Repository:](https://github.com/sonam-git/Tech_Int_Prep)
 
 ## Screenshots:
 
@@ -86,6 +86,7 @@ Open the cloned (or downloaded) repository in any source code editor.
 - Postman: [Postman](https://www.postman.com/)
 - Luxon: [Luxon](https://moment.github.io/luxon/)
 - Highlight.js: [Hightlight.js](https://highlightjs.org/)
+- SweetAlert.js :[SweetAlert.js](https://sweetalert.js.org/docs/)
 - License Badge: [Shields.io](https://shields.io/)
 - Visual Studio Code: [Website](https://code.visualstudio.com/)
 
@@ -98,12 +99,20 @@ Open the cloned (or downloaded) repository in any source code editor.
 6. Apply css for styling, which help to recall what we learned during first month of the class.
 
 ### Continued Development:
-1. Pagination for blog posts and comments.
-2. Editing and deleting comments.
-3. User profile pages.
+1. Pagination for question post and comments.
+2. Editing comments, Like count for comment.
+3. Each user allows to hit one like each page
+4. Unlike option for post and comment
+5. User profile pages.
 
 ## License
 This project is covered under the [MIT](https://opensource.org/licenses/MIT) license.
+
+## Team Members
+* Sonam J Sherpa
+* Justin Jasso
+* Dandar Ganbold
+* TJ Annoreno
 
 ## Author
 Follow me on Github at [Sonam J Sherpa](https://github.com/sonam-git).

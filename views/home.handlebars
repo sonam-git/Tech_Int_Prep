@@ -1,18 +1,24 @@
-<br />
+
 <!--Display Home page -->
-<div class="home-title-container">
-  <h2 class="home-title text-center">ASK AND ANSWER
+<div class="row my-5">
+<div class="col-lg-4 col-md-12 col-sm-6">
+  <h1 class="home-title">ASK AND ANSWER</h1>
+  <p class="title-info "> <strong>{{title}}</strong> is a place where individuals can come to ask the technical question or
+          contribute the answer to the question being asked by the other user.</p>  
+          <br> {{#unless logged_in}}
+        <a class="btn btn-success signup signup-btn getstarted "
+                href="/signup"
+                role="button"
+              >Sign Up</a>
+              {{/unless}}
+</div>
+<!-- div to hold the fade in fade out image with class content -->
+<div class="image-div col-lg-8 col-sm-6" ></div>
 </div>
 <br />
-<!-- div to hold the fade in fade out image with class content -->
-<div class="image-div p-5 text-center bg-image"></div>
-<br />
-<div class="container text-center quote">- Sharing knowledge is the most fundamental
-  act of friendship. Because it is a way you can give something without loosing
-  something.
-  <br />
-  <strong>-Richard Stallman</strong></div>
   <br>
 
 
- 
+{{!-- <div class="container text-left quote">Sharing knowledge is the most fundamental
+  act of friendship. Because it is a way you can give something without loosing
+  something.<strong> -Richard Stallman</strong></div> --}}

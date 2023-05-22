@@ -12,6 +12,7 @@ router.get("/", async (req, res) => {
   try {
        res.render("home", {
       layouts: "main",
+      title:"Tech Int Prep",
       logged_in: req.session.logged_in,
     });
   } catch (err) {

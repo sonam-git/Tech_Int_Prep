@@ -101,7 +101,7 @@ const handleLike = async (postId) => {
         // Disable the like button after clicking
         const likeButton = document.getElementById('likeButton');
         likeButton.disabled = true;
-        alert('You already like this post 👍 ')
+        alert('Thanks for liking this post 👍 ')
       } else if (response.status === 400) {
         const data = await response.json();
         console.log(data.message);
@@ -120,3 +120,4 @@ const handleLike = async (postId) => {
     handleLike(postId);
   });
   
+

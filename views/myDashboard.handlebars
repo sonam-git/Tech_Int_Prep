@@ -3,12 +3,12 @@
 {{! Display all the posts/ can see without login }}
 <div class="container">
   {{#each posts}}
-    <div class="row">
+    <div class="row mx-auto">
       <div class="card">
         <br />
         <div class="card-header flex-row justify-space-between">
           <h3>Question</h3>
-          <div>
+          <div class="info">
             Posted by
             {{user.username}}
             on
@@ -17,12 +17,14 @@
         </div>
         <br />
         <h4>{{title}}</h4>
+          <p id="likesCount"> 👍 {{likes}} likes</p>
         <h4>Answer</h4>
         <pre>
           <code class="language-js">
             {{body}}
           </code>
         </pre>
+        
 <a href="/post/{{id}}" class="btn btn-primary btn-lg m-auto" role="button" >Comment This Post 	
 ➜ 💬</a>
                 {{!-- <button type="button" class="btn btn-outline-success sm"><a href="/post/{{id}}">comment on this post? 💬</a></button> --}}

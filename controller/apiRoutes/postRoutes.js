@@ -1,6 +1,6 @@
 // import required modules and dependencies
 const router = require("express").Router();
-const { Post } = require("../../models");
+const { Post,Like } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // This route creates a new post.
@@ -80,13 +80,12 @@ router.post('/:postId/like', async (req, res) => {
     // Increment the likes count
     post.likes += 1;
     await post.save();
-
+   
     res.status(200).json({ likes: post.likes });
   } catch (error) {
     console.error('Error liking post:', error);
     res.status(500).json({ message: 'Server Error' });
   }
 });
-
 
 module.exports = router;

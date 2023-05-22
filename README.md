@@ -1,4 +1,4 @@
-# Interactive Full Stack Application
+# Interactive Full Stack Application: Tech Int Prep
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description.
@@ -20,7 +20,7 @@ Technical Interview Preparation aka Tech Int Prep is a simple Heroku deployed ap
 
 ## The Challenge:
 
-The challenge of building this application involved creating a scalable and robust platform that could support multiple users, blog post and comments. The application was designed with security in mind, allowing users to authenticate themselves and protect their personal data. Furthermore, the application had to be built using modern web development technologies and follow best practices, including the MVC architecture pattern.
+The challenge of building this application involved creating a scalable and robust platform that could support multiple users, question, answers and comments. The application was designed with security in mind, allowing users to authenticate themselves and protect their personal data. Furthermore, the application had to be built using modern web development technologies and follow best practices, including the MVC architecture pattern.
 
 
 ## Usage Instructions:

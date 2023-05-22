@@ -24,10 +24,10 @@ body{
 
 .footer {
   position: absolute;
-  
   width: 100%;
   height: 60px; /* Adjust this value to set the footer's height */
 }
+
 h4{
   font-family: 'Courier New', Courier, monospace;
   font-size: medium;
@@ -35,12 +35,13 @@ h4{
   font-weight: 800;
 }
 
- h2{
+h2{
   color:white;
 }
 .form-label, .form-control{
 color:black;
 }
+/* home page title styling */
 h1.home-title{
   font-size: 6rem;
   color: black;
@@ -55,14 +56,12 @@ h1.home-title{
        1px 1px 0 #000;
   margin-left:20px;
 }
-
+/* homepage title description styling */
 p.title-info{
   font-size: 1.5rem;
   margin-left: 20px;
   text-align: justify;
   margin-top: 15px;
-
-  
 }
 /* Hero image fade in fade out display styling */
 .image-div {
@@ -225,7 +224,7 @@ h1.home-title{
 }
 p.title-info{
   font-size: 1rem;
-  text-align: justify;
+  text-align: center;
 }
 .content{
   padding: 10px;

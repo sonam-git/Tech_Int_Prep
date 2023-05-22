@@ -1,3 +1,7 @@
+body{
+  margin:0;
+  padding:5;
+}
 .image-div {
     box-shadow: 8px 3px 3px #2b1d3c;
     border-radius: 15px;
@@ -57,11 +61,15 @@
  .btn{
     background-color: white;
     color:green;
-    margin-left: 10px;
+
+ }
+ .signup-btn, .login-btn{
+  margin-left: 10px;
  }
  .btn:hover{
     background-color: red;
     color:white;
+    border: solid white 2px;
  }
  .nav-link:hover{
     text-decoration: underline 3px white;
@@ -75,10 +83,10 @@
     background-color:rgb(8, 71, 62); 
  }
 .btn-login a:hover{color:white;}
-
-.navbar-toggler, span{
-    color:white;
+button.navbar-toggler, .navbar-toggler-icon {
+  color:white;
 }
+
 /* image div for About us page */
 .box{
     width: 400px;
@@ -114,4 +122,5 @@ p.comment
   height: 250px;
   width: 300px;
 }
+
 }

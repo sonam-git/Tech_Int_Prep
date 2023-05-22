@@ -67,7 +67,7 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
-// like count router
+// LIKE COUNT ROUTER
 router.post('/:postId/like', async (req, res) => {
   try {
     const postId = req.params.postId;

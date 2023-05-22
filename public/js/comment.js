@@ -57,7 +57,11 @@ document
 
 
  // Attach the deleteCommentHandler to the comment delete buttons
-document
-.querySelector(".comment-list")
-.addEventListener("click", deleteCommentHandler);
+ document.addEventListener('DOMContentLoaded', () => {
+  const commentList = document.querySelector('.comment-list');
+  if (commentList) {
+    commentList.addEventListener('click', deleteCommentHandler);
+  }
+});
+
 

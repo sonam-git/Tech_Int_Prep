@@ -20,11 +20,11 @@
             {{post.body}}
           </code>
         </pre>
-         <br>
+        <br />
         <p>👍 : <span id="likesCount">{{post.likes}} </span> Likes</p>
         <button
           id="likeButton"
-          class="btn btn-primary"
+          class="btn btn-primary like-btn"
           data-post-id="{{post.id}}"
         >Like 👍</button>
       </div>
@@ -34,29 +34,29 @@
   <br />
   {{! Display the comments if there is one }}
   {{#if post.comments}}
-    <section class="card">
-      <div class="card-header">
-        <h3>Comments Dashboard</h3></div>
-
-      <div class="comment-list card-body">
-        {{#each post.comments}}
-          <div class="comment">
-            <br />
-            <p class="comment">Posted by:
-              {{user.username}},on
-              {{format_date createdAt}}</p></div>
-          <p>&mdash;
-            {{comment_text}}</p>
-          <button
-            class="delete-btn btn btn-danger"
-            data-comment-id="{{id}}"
-          >Delete</button>
-          <hr />
-
-        {{/each}}
-
-      </div>
-    </section>
+    <div class="row">
+      <section class="card">
+        <br />
+        <div class="card-header">
+          <h3>Comments Dashboard</h3></div>
+        <div class="comment-list card-body">
+          {{#each post.comments}}
+            <div class="comment">
+              <br />
+              <p class="comment">Posted by:
+                {{user.username}},on
+                {{format_date createdAt}}</p></div>
+            <p>&mdash;
+              {{comment_text}}</p>
+            <button
+              class="delete-btn btn btn-danger"
+              data-comment-id="{{id}}"
+            >Delete</button>
+            <hr />
+          {{/each}}
+        </div>
+      </section>
+    </div>
   {{/if}}
 
   {{! if user is logged in place to drop their comment }}

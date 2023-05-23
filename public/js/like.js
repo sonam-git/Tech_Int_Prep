@@ -101,7 +101,17 @@ const handleLike = async (postId) => {
         // Disable the like button after clicking
         const likeButton = document.getElementById('likeButton');
         likeButton.disabled = true;
-        alert('Thanks for liking this post 👍 ')
+
+        // Display the "Thanks for liking the post" message
+      const messageContainer = document.getElementById('messageContainer');
+      const messageTemplate = Handlebars.compile('{{message}}');
+      const messageHtml = messageTemplate({ message: 'Thanks for liking this post 👍' });
+      messageContainer.innerHTML = messageHtml;
+      
+      // Hide the message after 3 seconds
+      setTimeout(() => {
+        messageContainer.innerHTML = '';
+      }, 3000);
       } else if (response.status === 400) {
         const data = await response.json();
         console.log(data.message);

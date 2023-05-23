@@ -41,7 +41,6 @@ router.get("/signup", (req, res) => {
 // Otherwise, it renders the "signup" view.
   res.render("signup");
 });
-
 // handles the GET request for the "/aboutUs" page & renders the "aboutUs" view, 
 // passing the "main" layout and a "logged_in" flag to the view.
 router.get("/aboutUs", async (req, res) => {

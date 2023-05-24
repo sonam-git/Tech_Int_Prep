@@ -11,7 +11,7 @@ const logout = async function () {
     document.location.replace("/");
   } else {
     // If the response is not successful, the failed message is displayed
-    alert("Failed to log out");
+    console.log("Failed to log out");
   }
 };
 // event listener is added to the html element

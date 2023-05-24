@@ -125,9 +125,11 @@ const handleLike = async (postId) => {
   
   // Add event listener to the like button
   const likeButton = document.getElementById('likeButton');
-  likeButton.addEventListener('click', () => {
-    const postId = likeButton.getAttribute('data-post-id');
-    handleLike(postId);
-  });
+  if (likeButton) {
+    likeButton.addEventListener('click', () => {
+      const postId = likeButton.getAttribute('data-post-id');
+      handleLike(postId);
+    });
+  };
   
 

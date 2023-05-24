@@ -18,7 +18,6 @@ const signupFormHandler = async (event) => {
       }),
       headers: { "Content-Type": "application/json" },
     });
-    console.log(username, password);
     if (response.ok) {
       // redirects the user to the "/dashboard" page
       document.location.replace("/dashboard");

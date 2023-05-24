@@ -29,6 +29,7 @@ router.put("/:id", withAuth, async (req, res) => {
       // The where clause ensures that only the post with the id specified in the URL will be updated.
       where: {
         id: req.params.id,
+        user_id: req.session.user_id
       },
     });
     // if update operation affects any rows or if the post exists and is successfully updated

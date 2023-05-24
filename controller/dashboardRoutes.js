@@ -11,10 +11,11 @@ router.get("/", withAuth, async (req, res) => {
     const postData = await Post.findAll({
       include: [User],
     });
-//  // retrieve a plain JavaScript object containing only the data of the post, without any Sequelize-specific metadata or methods.
-    const posts = postData.map((post) => post.get({ plain: true }));
+ // retrieve a plain JavaScript object containing only the data of the post, without any Sequelize-specific metadata or methods using({plain: true});
+    const posts = postData.map((post) => post.get({ plain: true }))
+    .sort((a,b)=> new Date(b.createdAt)- new Date(a.createdAt)); //The sort method is used to sort the posts array based on the createdAt property.;
     console.log(posts);
-// it renders the "allpost" template, passing the fetched posts as well as layout and authentication information to the template.
+// it renders the "userPost" template, passing the fetched posts as well as layout and authentication information to the template.
     res.render("userPost", {
       posts,
       layout: "dashboard",
@@ -28,7 +29,7 @@ router.get("/", withAuth, async (req, res) => {
 
 // GET route that handles the "/new" path. It also requires authentication.
 router.get("/new", withAuth, (req, res) => {
-  // This route renders the "jsnewposts" template, passing the layout information to the template.
+  // This route renders the "newPost" template, passing the layout information to the template.
   res.render("newPost", {
     layout: "dashboard",
   });

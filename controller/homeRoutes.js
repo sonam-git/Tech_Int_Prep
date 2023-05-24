@@ -62,7 +62,8 @@ router.get("/myDashboard", async (req, res) => {
       include: [User],
     });
 
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }))
+    .sort((a,b)=> new Date(b.createdAt)- new Date(a.createdAt)); //The sort method is used to sort the posts array based on the createdAt property. 
 
     // The retrieved data is then passed to the "myDashboard" view along with the "dashboard" layout and the "logged_in" flag.
       res.render("myDashboard", {

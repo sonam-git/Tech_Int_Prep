@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Comment, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.post("/", withAuth, async (req, res) => {
+router.post("/addComment", withAuth, async (req, res) => {
   try {
     // Create a new comment with the provided data
     const newComment = await Comment.create({
@@ -40,6 +40,21 @@ router.delete("/:id", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.put("/:id", withAuth, async(req,res) => {
+  try {
+    const updatedComment = await Comment.update(req.body,{
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id
+      }
+    })
+    res.json(updatedComment)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
+})
 
 
 module.exports = router;

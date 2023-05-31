@@ -83,19 +83,23 @@ router.get("/post/:id", withAuth, async (req, res) => {
       where: { id: req.params.id },
       include: [User, { model: Comment, include: User }],
     });
-    const commentData = await Comment.findAll({
-      include: [User],
-    });
-    const comments = commentData.map((comment) => comment.get({ plain: true }));
+    const post = postData.get({ plain: true });
+    console.log("POSTTTTTTTT")
+    console.log(post)
+    const postComments = post.comments.map(comment => {
+      if(comment.user_id == req.session.user_id){
+        return {...comment,
+          canEdit: true}
+        }
+        return{
+          ...comment,
+          canEdit: false
+        }
+      })
+      console.log("POST COMMENENTNTNTNTNT")
+    console.log(postComments)
+      res.render("single-post", { post, postComments, logged_in: req.session.logged_in });
 
-    console.log(comments);
-    if (postData) {
-      const post = postData.get({ plain: true });
-      console.log(post);
-      res.render("single-post", { post, comments, logged_in: req.session.logged_in });
-    } else {
-      res.status(404).end();
-    }
   } catch (err) {
     res.status(500).json(err);
   }

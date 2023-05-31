@@ -4,22 +4,24 @@
   margin: 0;
   box-sizing: border-box;
 }
-html, body {
-  height: 100%;
+.flex-home{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 body{
   width: 100%;
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
   background: linear-gradient(rgba(77, 20, 211, 0.5), rgba(12, 122, 62, 0.5));
   overflow: scroll;
+  min-height: 100vh;
 }
 .wrapper {
-  min-height: 100%;
   position: relative;
+  height: fit-content;
 }
-
 .content {
-  padding-bottom: 60px; /* Adjust this value to accommodate the footer's height */
+  padding-bottom: 2.5rem; /* Adjust this value to accommodate the footer's height */
 }
 h4{
   font-family: 'Courier New', Courier, monospace;
@@ -130,6 +132,13 @@ p.title-info{
  .signup-btn, .login-btn{
   margin-left: 10px;
  }
+ button.update-btn{
+  background-color:white;
+  color:  green;
+  padding: 5px;
+  width: 100px;
+  border-radius: 5px;
+ }
  .btn:hover{
     background-color: red;
     color:white;
@@ -185,12 +194,15 @@ p.comment
   margin-top: 5px;
   padding-left: 20px;
 }
-.footer {
-  width: 100%;
-  bottom:0;
-  height: 60px; /* Adjust this value to set the footer's height */
-}
 
+.row{
+  margin-right: 0 !important; /* in order to get rid of extra space on the right to navbar */
+}
+.footer {
+  position: absolute;
+  width: 100%;
+  height: 2.5rem; /* Adjust this value to set the footer's height */
+}
 
 /********** Media Queries ***********/
 
@@ -209,17 +221,24 @@ p.comment
   }
   
   .image-div {
-    order: 2;
-    margin-bottom: 15px;
-  }
-  .image-div {
+  order: 2;
+  margin-bottom: 15px;
   padding: 10px;
   height: 250px;
   width: 350px;
 }
+
 h1.home-title{
   font-size: 2rem;
   text-align: center;
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 0.5px;
+  text-shadow:
+       2px 2px 0 white,
+     -0.5px -0.5px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;
 }
 p.title-info{
   font-size: 1rem;
@@ -228,14 +247,20 @@ p.title-info{
 .content{
   padding: 10px;
 }
+.login-btn {
+  width: fit-content;
+  margin-left: 0;
+  margin-top: 15px;
+}
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 820px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
   .row {
     display: flex;
     flex-direction: column-reverse;
     margin :auto;
     margin-top: 0 !important;
+   
   }
   
   .col-lg-4 {
@@ -258,10 +283,22 @@ p.title-info{
 }
 h1.home-title{
   font-size: 4rem;
+  -webkit-text-stroke-color: white;
+  text-shadow:
+       2px 2px 0 white,
+     -0.5px -0.5px 0 black,  
+      1px -1px 0 black,
+      -1px 1px 0 black,
+       1px 1px 0 black;
 }
 p.title-info{
   font-size: 2rem;
   text-align: center;
   margin: auto;
+}
+.login-btn {
+  width: 200px;
+  margin-left: 0;
+  margin-top: 15px;
 }
 }

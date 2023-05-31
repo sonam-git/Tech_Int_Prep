@@ -7,7 +7,7 @@ const newFormandler = async function (event) {
   const body = document.querySelector('textarea[name="post-body"]').value;
   console.log("body=", body);
   // The fetch() function is used to send a POST request to the "/api/post" endpoint.
-  await fetch("/api/posts", {
+  await fetch("/api/posts/new", {
     method: "POST",
     body: JSON.stringify({
       title,

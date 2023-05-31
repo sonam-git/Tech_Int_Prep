@@ -1,10 +1,10 @@
 // import required modules and dependencies
 const router = require("express").Router();
-const { Post,Like } = require("../../models");
+const { Post} = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // This route creates a new post.
-router.post("/", withAuth, async (req, res) => {
+router.post("/new", withAuth, async (req, res) => {
   try {
     //  create a new post with the data received in the request body.
     const newPost = await Post.create({

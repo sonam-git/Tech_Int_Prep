@@ -3,7 +3,7 @@ const router = require("express").Router();
 const { User } = require("../../models");
 
 // This route handles the creation of a new user when a POST request is made to the root path ("/")
-router.post("/", async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     // uses the User.create() method to create a new user with the data provided in the request body.
     const userData = await User.create(req.body);

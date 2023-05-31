@@ -20,7 +20,6 @@ router.get("/", withAuth, async (req, res) => {
       posts,
       layout: "dashboard",
       logged_in: true,
-      likes:0
     });
   } catch (err) {
     res.status(500).json(err);
@@ -48,7 +47,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
       // it renders the "editposts" template, passing the layout information and the fetched post to the template.
       res.render("editposts", {
         layout: "dashboard",
-        post,
+        post, //to display the corresponding post
       });
     } else {
       res.status(404).end();

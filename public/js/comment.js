@@ -1,4 +1,5 @@
 
+//  ******************** ADD NEW COMMENT ********************* //
 const commentFormHandler = async function (event) {
   // prevents the default form submission behavior
   event.preventDefault();
@@ -11,7 +12,7 @@ const commentFormHandler = async function (event) {
   console.log(post_id)
   // sends an HTTP POST request to the server to create a new comment with the extracted data only if user input some text
   if (comment_text) {
-    await fetch("/api/comments", {
+    await fetch("/api/comments/addComment", {
       method: "POST",
       body: JSON.stringify({
         post_id,
@@ -26,7 +27,95 @@ const commentFormHandler = async function (event) {
   }
 };
 
-// Function to handle comment deletion
+
+//  ******************** UPDATE COMMENT ********************* //
+// Get the update buttons
+const updateButtons = document.querySelectorAll('.edit-btn');
+
+// Add event listener to each update button
+updateButtons.forEach(button => {
+  button.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    // Get the comment ID from the data attribute
+    const commentId = button.getAttribute('data-comment-id');
+
+    // Get the comment text element
+    const commentTextElement = document.querySelector(`#comment-${commentId}`);
+
+    // Get the comment text
+    const commentText = commentTextElement.textContent;
+
+    // Create a new editable element
+    const editableComment = document.createElement('input');
+    editableComment.type = 'text';
+    editableComment.value = commentText;
+
+    // Replace the comment text element with the editable element
+    commentTextElement.parentNode.replaceChild(editableComment, commentTextElement);
+
+    // Create a new update button
+    const updateButton = document.createElement('button');
+    updateButton.textContent = 'Update';
+    updateButton.classList.add('btn-outline-primary'); //bootstrap button class
+    updateButton.classList.add('btn');
+    
+
+    // Replace the original update button with the new one
+    button.parentNode.replaceChild(updateButton, button);
+
+    // Focus on the editable element
+    editableComment.focus();
+
+    // Handle the update comment event
+    const updateComment = async () => {
+      // Get the updated comment text
+      const updatedComment = editableComment.value;
+
+      // Make a PUT request to update the comment
+      try {
+        const response = await fetch(`/api/comments/${commentId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ comment_text: updatedComment })
+        });
+
+        if (response.ok) {
+          // Replace the editable element with the updated comment text
+          const newCommentTextElement = document.createElement('span');
+          newCommentTextElement.id = `comment-${commentId}`;
+          newCommentTextElement.className = 'comment-text';
+          newCommentTextElement.textContent = updatedComment;
+
+          editableComment.parentNode.replaceChild(newCommentTextElement, editableComment);
+
+          // Replace the update button with the original one
+          updateButton.parentNode.replaceChild(button, updateButton);
+
+          alert('Comment updated successfully!');
+        } else {
+          throw new Error('Failed to update comment');
+        }
+      } catch (error) {
+        console.error(error);
+        alert('An error occurred while updating the comment');
+      }
+    };
+
+    // Update the comment when the update button is clicked
+    updateButton.addEventListener('click', async (event) => {
+      event.preventDefault();
+      await updateComment();
+    });
+  });
+});
+
+
+
+
+//  ******************** DELETE COMMENT ********************* //
 const deleteCommentHandler = async function (event) {
   event.preventDefault();
 
@@ -46,6 +135,44 @@ console.log(commentId)
       // Display an error message if the deletion fails
       alert("You are only allowed to delete the comment you posted.");
     }
+  }
+};
+
+const handleUpdateComment = async (event) => {
+  event.preventDefault();
+
+  const commentId = event.target.getAttribute("data-comment-id");
+console.log(commentId)
+  const updatedCommentInput = event.target.parentNode.querySelector(
+    "input[name='updated-comment']"
+  );
+
+  if (!updatedCommentInput) {
+    console.error("Updated comment input field not found.");
+    return;
+  }
+
+  const updatedComment = updatedCommentInput.value;
+
+  try {
+    const response = await fetch(`/api/comments/updateComment/${commentId}`, {
+      method: "PUT",
+      body: JSON.stringify({ updatedComment }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      location.reload();
+    } else {
+      const errorData = await response.json();
+      throw new Error(errorData.message);
+    }
+  } catch (error) {
+    console.error(error);
+    const messageContainer = document.getElementById("messageContainer");
+    messageContainer.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
   }
 };
 

@@ -132,13 +132,12 @@ p.title-info{
  .signup-btn, .login-btn{
   margin-left: 10px;
  }
- button.update-btn{
-  background-color:white;
-  color:  green;
+.edit_area{
   padding: 5px;
-  width: 100px;
+  background-color: rgb(175, 210, 174);
   border-radius: 5px;
- }
+  border: solid black 2px !important;
+}
  .btn:hover{
     background-color: red;
     color:white;

@@ -47,9 +47,14 @@ updateButtons.forEach(button => {
     const commentText = commentTextElement.textContent;
 
     // Create a new editable element
-    const editableComment = document.createElement('input');
+    const editableComment = document.createElement('textarea');
+    editableComment.classList.add('edit_area');
     editableComment.type = 'text';
     editableComment.value = commentText;
+
+    // Set attributes for the textarea element
+editableComment.rows = 5; // Adjust the number of rows as needed
+editableComment.cols = 40; // Adjust the number of columns as needed
 
     // Replace the comment text element with the editable element
     commentTextElement.parentNode.replaceChild(editableComment, commentTextElement);

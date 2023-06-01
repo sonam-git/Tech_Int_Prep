@@ -230,14 +230,7 @@ p.comment
 h1.home-title{
   font-size: 2rem;
   text-align: center;
-  -webkit-text-stroke-color: white;
-  -webkit-text-stroke-width: 0.5px;
-  text-shadow:
-       2px 2px 0 white,
-     -0.5px -0.5px 0 black,  
-      1px -1px 0 black,
-      -1px 1px 0 black,
-       1px 1px 0 black;
+
 }
 p.title-info{
   font-size: 1rem;
@@ -246,11 +239,24 @@ p.title-info{
 .content{
   padding: 10px;
 }
-.login-btn {
-  width: fit-content;
+.logout-btn {
   margin-left: 0;
-  margin-top: 15px;
+  width: fit-content;
+  margin-bottom: 10;
 }
+.btn-dashboard {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.div-intro{
+  background-color: rgb(155, 209, 178);
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 8px 3px 3px #2b1d3c;
+}
+
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
@@ -299,5 +305,10 @@ p.title-info{
   width: 200px;
   margin-left: 0;
   margin-top: 15px;
+}
+.logout-btn {
+  margin-left: 0;
+  width: fit-content;
+  margin-bottom: 10;
 }
 }

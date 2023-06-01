@@ -1,4 +1,3 @@
-
 //  ******************** ADD NEW COMMENT ********************* //
 const commentFormHandler = async function (event) {
   // prevents the default form submission behavior
@@ -6,10 +5,12 @@ const commentFormHandler = async function (event) {
 
   // extracts the post ID and comment text from the form inputs
   const post_id = document.querySelector('input[name="post-id"]').value;
-  const comment_text = document.querySelector('input[name="comment-body"]').value;
+  const comment_text = document.querySelector(
+    'input[name="comment-body"]'
+  ).value;
 
-  console.log(comment_text)
-  console.log(post_id)
+  console.log(comment_text);
+  console.log(post_id);
   // sends an HTTP POST request to the server to create a new comment with the extracted data only if user input some text
   if (comment_text) {
     await fetch("/api/comments/addComment", {
@@ -22,23 +23,22 @@ const commentFormHandler = async function (event) {
         "Content-Type": "application/json",
       },
     });
-  // replaces the current page location with /dashboard.
-  document.location.reload();
+    // replaces the current page location with /dashboard.
+    document.location.reload();
   }
 };
 
-
 //  ******************** UPDATE COMMENT ********************* //
 // Get the update buttons
-const updateButtons = document.querySelectorAll('.edit-btn');
+const updateButtons = document.querySelectorAll(".edit-btn");
 
 // Add event listener to each update button
-updateButtons.forEach(button => {
-  button.addEventListener('click', async (e) => {
-    e.preventDefault();
+updateButtons.forEach((button) => {
+  button.addEventListener("click", async (event) => {
+    event.preventDefault();
 
     // Get the comment ID from the data attribute
-    const commentId = button.getAttribute('data-comment-id');
+    const commentId = button.getAttribute("data-comment-id");
 
     // Get the comment text element
     const commentTextElement = document.querySelector(`#comment-${commentId}`);
@@ -47,24 +47,26 @@ updateButtons.forEach(button => {
     const commentText = commentTextElement.textContent;
 
     // Create a new editable element
-    const editableComment = document.createElement('textarea');
-    editableComment.classList.add('edit_area');
-    editableComment.type = 'text';
+    const editableComment = document.createElement("textarea");
+    editableComment.classList.add("edit_area");
+    editableComment.type = "text";
     editableComment.value = commentText;
 
     // Set attributes for the textarea element
-editableComment.rows = 5; // Adjust the number of rows as needed
-editableComment.cols = 40; // Adjust the number of columns as needed
+    editableComment.rows = 5; // Adjust the number of rows as needed
+    editableComment.cols = 40; // Adjust the number of columns as needed
 
     // Replace the comment text element with the editable element
-    commentTextElement.parentNode.replaceChild(editableComment, commentTextElement);
+    commentTextElement.parentNode.replaceChild(
+      editableComment,
+      commentTextElement
+    );
 
     // Create a new update button
-    const updateButton = document.createElement('button');
-    updateButton.textContent = 'Update';
-    updateButton.classList.add('btn-outline-primary'); //bootstrap button class
-    updateButton.classList.add('btn');
-    
+    const updateButton = document.createElement("button");
+    updateButton.textContent = "Update";
+    updateButton.classList.add("btn-outline-primary"); //bootstrap button class
+    updateButton.classList.add("btn");
 
     // Replace the original update button with the new one
     button.parentNode.replaceChild(updateButton, button);
@@ -80,45 +82,55 @@ editableComment.cols = 40; // Adjust the number of columns as needed
       // Make a PUT request to update the comment
       try {
         const response = await fetch(`/api/comments/${commentId}`, {
-          method: 'PUT',
+          method: "PUT",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify({ comment_text: updatedComment })
+          body: JSON.stringify({ comment_text: updatedComment }),
         });
 
         if (response.ok) {
           // Replace the editable element with the updated comment text
-          const newCommentTextElement = document.createElement('span');
+          const newCommentTextElement = document.createElement("span");
           newCommentTextElement.id = `comment-${commentId}`;
-          newCommentTextElement.className = 'comment-text';
+          newCommentTextElement.className = "comment-text";
           newCommentTextElement.textContent = updatedComment;
 
-          editableComment.parentNode.replaceChild(newCommentTextElement, editableComment);
+          editableComment.parentNode.replaceChild(
+            newCommentTextElement,
+            editableComment
+          );
 
           // Replace the update button with the original one
           updateButton.parentNode.replaceChild(button, updateButton);
 
-          alert('Comment updated successfully!');
+          const messageContainer = document.getElementById("updateCommentText");
+          const messageTemplate = Handlebars.compile("{{message}}");
+          const messageHtml = messageTemplate({
+            message: "Your comment has been successfully updated",
+          });
+          messageContainer.innerHTML = messageHtml;
+
+          // Hide the message after 3 seconds
+          setTimeout(() => {
+            messageContainer.innerHTML = "";
+          }, 3000);
         } else {
-          throw new Error('Failed to update comment');
+          throw new Error("Failed to update comment");
         }
       } catch (error) {
         console.error(error);
-        alert('An error occurred while updating the comment');
+        alert("An error occurred while updating the comment");
       }
     };
 
     // Update the comment when the update button is clicked
-    updateButton.addEventListener('click', async (event) => {
+    updateButton.addEventListener("click", async (event) => {
       event.preventDefault();
       await updateComment();
     });
   });
 });
-
-
-
 
 //  ******************** DELETE COMMENT ********************* //
 const deleteCommentHandler = async function (event) {
@@ -126,7 +138,7 @@ const deleteCommentHandler = async function (event) {
 
   if (event.target.classList.contains("delete-btn")) {
     const commentId = event.target.getAttribute("data-comment-id");
-console.log(commentId)
+    console.log(commentId);
     // Send an HTTP DELETE request to the server to delete the comment
     const response = await fetch(`/api/comments/${commentId}`, {
       method: "DELETE",
@@ -134,7 +146,7 @@ console.log(commentId)
 
     if (response.ok) {
       // Comment deleted successfully, refresh the page
-      alert ("Comment deleted successfully.");
+      alert("Comment deleted successfully.");
       document.location.reload();
     } else {
       // Display an error message if the deletion fails
@@ -147,7 +159,7 @@ const handleUpdateComment = async (event) => {
   event.preventDefault();
 
   const commentId = event.target.getAttribute("data-comment-id");
-console.log(commentId)
+  console.log(commentId);
   const updatedCommentInput = event.target.parentNode.querySelector(
     "input[name='updated-comment']"
   );
@@ -181,19 +193,15 @@ console.log(commentId)
   }
 };
 
-
 // addEventListener method attaches the commentFormHandler function to the "submit",it is executed whenever the user submits a comment.
 document
   .querySelector("#new-comment-form")
   .addEventListener("submit", commentFormHandler);
 
-
- // Attach the deleteCommentHandler to the comment delete buttons
- document.addEventListener('DOMContentLoaded', () => {
-  const commentList = document.querySelector('.comment-list');
+// Attach the deleteCommentHandler to the comment delete buttons
+document.addEventListener("DOMContentLoaded", () => {
+  const commentList = document.querySelector(".comment-list");
   if (commentList) {
-    commentList.addEventListener('click', deleteCommentHandler);
+    commentList.addEventListener("click", deleteCommentHandler);
   }
 });
-
-

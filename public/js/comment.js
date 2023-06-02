@@ -107,7 +107,7 @@ updateButtons.forEach((button) => {
           const messageContainer = document.getElementById("updateCommentText");
           const messageTemplate = Handlebars.compile("{{message}}");
           const messageHtml = messageTemplate({
-            message: "Your comment has been successfully updated",
+            message: "  Your comment has been successfully updated",
           });
           messageContainer.innerHTML = messageHtml;
 

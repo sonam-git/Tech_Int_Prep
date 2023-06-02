@@ -1,4 +1,3 @@
-
 {{! Display user post }}
 <div class="container">
   <div class="row mx-auto">
@@ -40,6 +39,7 @@
         <br />
         <div class="card-header">
           <h3>Comments Dashboard</h3>
+            <p id="updateCommentText" class="updateText"></p> 
         </div>
         <div class="comment-list card-body">
           {{#each postComments}}
@@ -52,7 +52,6 @@
             <p>&mdash;
               <span id="comment-{{id}}" class="comment-text">{{comment_text}}</span>
             </p>
-            <div id="updateCommentText"></div> 
             <br>
             {{#if canEdit}}
             <button

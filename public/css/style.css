@@ -193,7 +193,12 @@ p.comment
   margin-top: 5px;
   padding-left: 20px;
 }
-
+p.updateText{
+  margin-top: 10px;
+  margin-left: 5px;
+  color:green;
+  font-family: monospace;
+}
 .row{
   margin-right: 0 !important; /* in order to get rid of extra space on the right to navbar */
 }

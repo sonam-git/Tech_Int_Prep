@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Comment, User } = require("../../models");
+const { Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.post("/addComment", withAuth, async (req, res) => {
@@ -47,9 +47,11 @@ router.put("/:id", withAuth, async(req,res) => {
       where: {
         id: req.params.id,
         user_id: req.session.user_id
-      }
-    })
-    res.json(updatedComment)
+      },
+      returning: true // Add this option to return the updated comment
+    });
+    const updatedCommentData = updatedComment[1][0]; // Access the updated comment data
+    res.json(updatedCommentData);
   } catch (error) {
     console.log(error)
     res.status(500).json(error)

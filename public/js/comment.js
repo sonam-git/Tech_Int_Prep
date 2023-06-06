@@ -29,10 +29,10 @@ const commentFormHandler = async function (event) {
 };
 
 //  ******************** UPDATE COMMENT ********************* //
-// Get the update buttons
+// Get all update buttons
 const updateButtons = document.querySelectorAll(".edit-btn");
 
-// Add event listener to each update button
+// Iterate over each update button
 updateButtons.forEach((button) => {
   button.addEventListener("click", async (event) => {
     event.preventDefault();
@@ -52,10 +52,6 @@ updateButtons.forEach((button) => {
     editableComment.type = "text";
     editableComment.value = commentText;
 
-    // Set attributes for the textarea element
-    editableComment.rows = 5; // Adjust the number of rows as needed
-    editableComment.cols = 40; // Adjust the number of columns as needed
-
     // Replace the comment text element with the editable element
     commentTextElement.parentNode.replaceChild(
       editableComment,
@@ -65,7 +61,7 @@ updateButtons.forEach((button) => {
     // Create a new update button
     const updateButton = document.createElement("button");
     updateButton.textContent = "Update";
-    updateButton.classList.add("btn-outline-primary"); //bootstrap button class
+    updateButton.classList.add("btn-outline-primary"); // Bootstrap button class
     updateButton.classList.add("btn");
 
     // Replace the original update button with the new one
@@ -73,6 +69,33 @@ updateButtons.forEach((button) => {
 
     // Focus on the editable element
     editableComment.focus();
+
+    // Set attributes for the textarea element based on screen size
+    const setTextareaAttributes = () => {
+      const screenWidth = window.innerWidth;
+      let rows, cols;
+
+      // Adjust the attributes based on screen size
+      if (screenWidth < 576) {
+        rows = 3;
+        cols = 35;
+      } else if (screenWidth >= 576 && screenWidth < 992) {
+        rows = 4;
+        cols = 45;
+      } else {
+        rows = 5;
+        cols = 60;
+      }
+
+      editableComment.rows = rows;
+      editableComment.cols = cols;
+    };
+
+    // Call the function initially to set the attributes
+    setTextareaAttributes();
+
+    // Call the function whenever the window is resized
+    window.addEventListener('resize', setTextareaAttributes);
 
     // Handle the update comment event
     const updateComment = async () => {
@@ -107,14 +130,15 @@ updateButtons.forEach((button) => {
           const messageContainer = document.getElementById("updateCommentText");
           const messageTemplate = Handlebars.compile("{{message}}");
           const messageHtml = messageTemplate({
-            message: "  Your comment has been successfully updated",
+            message: "Your comment has been successfully updated",
           });
           messageContainer.innerHTML = messageHtml;
-
+          
           // Hide the message after 3 seconds
           setTimeout(() => {
             messageContainer.innerHTML = "";
           }, 3000);
+         
         } else {
           throw new Error("Failed to update comment");
         }

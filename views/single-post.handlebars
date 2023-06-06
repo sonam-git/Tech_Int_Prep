@@ -28,6 +28,7 @@
           class="btn btn-primary like-button"
           data-post-id="{{post.id}}"
         >Like 👍</button>
+        
       </div>
     </div>
   </div>
@@ -43,11 +44,22 @@
         </div>
         <div class="comment-list card-body">
           {{#each postComments}}
-            <div class="comment">
+            <div class="comment ">
               <br />
-              <p class="comment">Posted by:
+              
+                {{#if isUpdated}}
+                <p class="comment">Posted by:
+                {{user.username}} on
+                {{format_date createdAt}}</p>
+                <p class="comment" id="comment-date-{{id}}">Updated by:
+                {{user.username}} on
+                {{format_date updatedAt}}
+                {{else}}
+                <p class="comment">Posted by:
                 {{user.username}},on
                 {{format_date createdAt}}</p>
+                {{/if}}
+              </p>
             </div>
             <p>&mdash;
               <span id="comment-{{id}}" class="comment-text">{{comment_text}}</span>

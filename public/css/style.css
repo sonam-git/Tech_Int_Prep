@@ -13,7 +13,8 @@ body{
   width: 100%;
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
   background: linear-gradient(rgba(77, 20, 211, 0.5), rgba(12, 122, 62, 0.5));
-  overflow: scroll;
+  background-size:cover;
+  background-repeat:inherit;
   min-height: 100vh;
 }
 .wrapper {
@@ -31,7 +32,7 @@ h4{
 }
 
 h2{
-  color:white;
+  color:black;
 }
 .form-label, .form-control{
 color:black;
@@ -63,7 +64,7 @@ p.title-info{
 .image-div {
     box-shadow: 8px 3px 3px #2b1d3c;
     border-radius: 15px;
-    height: 500px;
+    height: 450px;
     width: 800px;
     margin: auto;
     background-image: linear-gradient(
@@ -187,6 +188,7 @@ span{
 /* styling for question title */
 .card-header{
   box-shadow: 8px 3px 3px rgb(33, 30, 30);
+  background-color: palegoldenrod;
 }
 /* p element styling for comment */
 p.comment
@@ -194,7 +196,11 @@ p.comment
   font-family: 'Courier New', Courier, monospace;
   font-weight: 900;
 }
-
+.editPost{
+  color: white;
+  font-family: monospace;
+  font-size: large;
+}
 .quote{
   margin-top: 5px;
   padding-left: 20px;
@@ -209,10 +215,13 @@ p.updateText{
   margin-right: 0 !important; /* in order to get rid of extra space on the right to navbar */
 }
 .footer {
-  position: absolute;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  height: 2.5rem; /* Adjust this value to set the footer's height */
-  color:white;
+  background-color: #8c8392;
+  padding: 20px;
+  text-align: center;
 }
 
 /********** Media Queries ***********/
@@ -236,7 +245,7 @@ p.updateText{
   order: 2;
   margin-bottom: 15px;
   padding: 10px;
-  height: 450px;
+  height: 300px;
   width: 450px;
 }
 
@@ -264,14 +273,12 @@ p.title-info{
 .btn-dashboard {
   display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
 }
 .div-intro{
-  background-color: rgb(156, 124, 168);
+  background-color: rgb(36, 2, 49);
   padding: 15px;
   border-radius: 15px;
-  box-shadow: 8px 3px 3px #2b1d3c;
+  box-shadow: 8px 3px 3px #eaece4;
 }
 
 }

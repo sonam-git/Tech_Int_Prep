@@ -1,4 +1,4 @@
-// function that handles new post
+// function that handles/Add new post
 const newFormandler = async function (event) {
   // prevents the default form submission behavior
   event.preventDefault();
@@ -9,6 +9,7 @@ const newFormandler = async function (event) {
   // display alert if empty input
   if (!title|| !body) {
     return alert('Question and Answer must be provided');
+    
   }
   // The fetch() function is used to send a POST request to the "/api/post" endpoint.
   await fetch("/api/posts/new", {
@@ -21,8 +22,16 @@ const newFormandler = async function (event) {
       "Content-Type": "application/json",
     },
   });
-  // redirect the user to the "/dashboard" page.
-  document.location.replace("/dashboard");
+  // Display the success message
+  const successMessage = document.createElement('p');
+  successMessage.textContent = 'The Question has been added to the dashboard';
+  successMessage.classList.add('text-success', 'text-black');
+  document.querySelector('#addQA').appendChild(successMessage);
+
+  // Wait for 3 seconds and then redirect to /dashboard
+  setTimeout(() => {
+    document.location.replace("/dashboard");
+  }, 2000);
 };
 
 // event listener is added to the "submit" event of the form w

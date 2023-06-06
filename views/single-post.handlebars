@@ -4,7 +4,8 @@
     <div class="card post-item">
       <br />
       <div class="card-header flex-row justify-space-between">
-        <h4>{{post.title}}</h4>
+        <h4><span>Question: </span>{{post.title}}</h4>
+        <br>
         <div>
           Posted by <strong>
           {{post.user.username}}</strong>
@@ -14,6 +15,7 @@
         {{! Display the current likes count }}
       </div>
       <div class="card-body">
+        <span>Answer:</span>
         <pre>
           <code class="language-js">
             {{post.body}}

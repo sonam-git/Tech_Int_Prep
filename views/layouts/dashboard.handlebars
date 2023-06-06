@@ -83,14 +83,33 @@
       <div class="content">
         {{{body}}}
       </div>
-      <footer class="footer" id="footer">
-        <p class="container text-center">
-          <strong>Copyright &copy;</strong> All rights reserved by Tech Int Prep Team
-            2023<a
-            href="https://github.com/sonam-git/Tech_Int_Prep"
-            target="_blank"
-          ><i class="fa-brands fa-github fa-xl mx-2"></i></a>
-        </p>
+      {{!-- footer section --}}
+       <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-5">
+              <p class="mt-2">&copy;
+                {{2023}}
+                Tech Int Prep Team. All rights reserved.</p>
+            </div>
+            <div class="col-lg-7">
+              <div
+                class="d-flex flex-lg-row flex-sm-column justify-content-lg-end p-2"
+              >
+               <a href="/aboutUs"> <button
+                  class="btn btn-primary mx-2"
+                >About</button></a>
+                <a href="/dashboard"><button
+                  class="btn btn-primary mx-2"
+                >Dashboard</button></a>
+                <button class="btn btn-success mx-2"><a
+                    href="https://github.com/sonam-git/Tech_Int_Prep"
+                    target="_blank"
+                  ><i class="fa-brands fa-github fa-xl mx-2"></i></a></button>
+              </div>
+            </div>
+          </div>
+        </div>
       </footer>
     </main>
     {{! highlight }}

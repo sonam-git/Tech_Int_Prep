@@ -43,11 +43,14 @@ router.get("/edit/:id", withAuth, async (req, res) => {
     if (postData) {
       // retrieve a plain JavaScript object containing only the data of the post, without any Sequelize-specific metadata or methods.
       const post = postData.get({ plain: true });
+      const canUpdatePost = post.user_id === req.session.user_id; // Check if the logged-in user is the creator of the post
+      
       console.log(post);
       // it renders the "editposts" template, passing the layout information and the fetched post to the template.
       res.render("editposts", {
         layout: "dashboard",
         post, //to display the corresponding post
+        canUpdatePost, // Add the canUpdatePost variable to the template
       });
     } else {
       res.status(404).end();

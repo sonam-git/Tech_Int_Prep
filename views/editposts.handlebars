@@ -1,10 +1,11 @@
 <div class="col-lg-6 col-md-10 col-sm-6 my-5 rounded mx-auto d-block col border rounded p-4">
   <div class="card-header">
-    <h2 class="text-left p-4">Edit Question</h2>
+    <h2 class="text-left p-4">Edit Question/Answer</h2>
   </div>
   <br>
   <form id="edit-post-form" class="card-body">
     <input type="hidden" name="post-id" value="{{post.id}}" />
+    {{#if canUpdatePost}}
     <label class="form-label my-2" for="post-title">Question</label>
     <input
       type="text"
@@ -26,6 +27,12 @@
       id="delete-btn"
       class="btn btn-danger mb-2"
     >Delete</button>
+    {{else}}
+    <p class="editPost">You are not authorized to update and delete this Q/A.</p>
+        <a class="btn btn-success"
+                  href="/dashboard"
+                  role="button"
+                > ← Dashboard</a>{{/if}}
   </form>
   <br>
 </div>

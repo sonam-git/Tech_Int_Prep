@@ -11,6 +11,7 @@ const newFormhandler = async function (event) {
   if (!title|| !body) {
     return alert('Question and Answer must be provided');
   }
+
   // sends a request(PUT) to server using fetch method
   await fetch(`/api/posts/${post_id}`, {
     method: "PUT",
@@ -24,8 +25,17 @@ const newFormhandler = async function (event) {
       "Content-Type": "application/json",
     },
   });
-  // replaces the current page location with /dashboard.
-  document.location.replace("/dashboard");
+    // Display the success message
+    const successMessage = document.createElement('p');
+    successMessage.textContent = 'The Q&A has been updated';
+    successMessage.classList.add('text-success', 'text-white');
+    document.querySelector('#edit-post-form').appendChild(successMessage);
+  
+    // Wait for 3 seconds and then redirect to /dashboard
+    setTimeout(() => {
+      document.location.replace("/dashboard");
+    }, 2000);
+
 };
 
 // Function to handle delete action
@@ -37,8 +47,16 @@ const deleteClickHandler = async () => {
   await fetch(`/api/posts/${post_id}`, {
     method: "DELETE",
   });
-  // replaces the current page location with /dashboard.
-  document.location.replace("/dashboard");
+  // Display the success message
+  const successMessage = document.createElement('p');
+  successMessage.textContent = 'The Q&A has been deleted';
+  successMessage.classList.add('text-success', 'text-white');
+  document.querySelector('#edit-post-form').appendChild(successMessage);
+
+  // Wait for 3 seconds and then redirect to /dashboard
+  setTimeout(() => {
+    document.location.replace("/dashboard");
+  }, 3000);
 };
 
 // adds event listeners where the function within the argument is invoked once user click the button or submit the form

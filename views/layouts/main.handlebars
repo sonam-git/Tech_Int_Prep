@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tech Int Prep</title>
+    <link
+      rel="icon"
+      href="../images/Tech_Int_Prep _logo.png"
+      type="image/x-icon"
+    />
+
     {{! Link to sweetalert2 }}
     <link
       href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css"
@@ -98,14 +104,38 @@
         <br />
         {{{body}}}
       </div>
-      <footer class="footer" id="footer">
-        <p class="container text-center">
-          <strong>Copyright &copy;</strong> All rights reserved by Tech Int Prep Team
-            2023<a
-            href="https://github.com/sonam-git/Tech_Int_Prep"
-            target="_blank"
-          ><i class="fa-brands fa-github fa-xl mx-2"></i></a>
-        </p>
+      {{!-- footer section --}}
+       <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-5">
+              <p class="mt-2" style="color:white; font-size: 18px;">&copy;
+                {{2023}}
+                Tech Int Prep Team. All rights reserved.</p>
+            </div>
+            <div class="col-lg-7">
+              <div
+                class="d-flex flex-lg-row flex-sm-column justify-content-lg-end p-2"
+              >
+               <a href="/aboutUs"> <button
+                  class="btn btn-primary mx-2"
+                >About</button></a>
+                {{#if logged_in}}
+                <a href="/dashboard"><button
+                  class="btn btn-primary mx-2"
+                >Dashboard</button></a>
+                {{else}}
+                <a href="/signup"><button
+                  class="btn btn-primary mx-2"
+                >Sign up</button></a>{{/if}}
+                <button class="btn btn-success mx-2"><a
+                    href="https://github.com/sonam-git/Tech_Int_Prep"
+                    target="_blank"
+                  ><i class="fa-brands fa-github fa-xl mx-2"></i></a></button>
+              </div>
+            </div>
+          </div>
+        </div>
       </footer>
     </main>
 

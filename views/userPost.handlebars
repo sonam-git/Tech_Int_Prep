@@ -2,14 +2,15 @@
 <br />
 {{! Display the post created by logged in user }}
 <div class="container">
+  <div class="card-header ">
+   <h3 class="text-center p-2">Question And Answer Dashboard</h3></div>
+   <br>
   {{#each posts}}
     <div class="row mx-auto">
       <div class="card">
         <br />
          <div class="card-header flex-row justify-space-between">
-         <h3>Question</h3>
          <div>
-        
           Posted by <strong>
           {{user.username}}</strong>
           on
@@ -17,11 +18,12 @@
        </div>
         </div>
         <br />
-        <h4>{{title}}</h4>
+        
+        <h4> <span>Question: </span>{{title}}</h4>
         <br />
         <br />
         <p id="likesCount"> 👍 {{likes}} likes</p>
-        <span>Answer</span>
+        <span>Answer: </span>
         <pre>
           <code class="language-js">
             {{body}}

@@ -30,7 +30,7 @@ const loginFormHandler = async (event) => {
       // If login fails, display an error message using SweetAlert2
       Swal.fire({
         icon: "error",
-        title: "Failed to login: wrong username or password",
+        title: "Wrong username or password",
       });
     }
   }

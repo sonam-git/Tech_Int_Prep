@@ -1,24 +1,23 @@
 
 <!--Display Home page -->
 <div class="row">
+  {{#unless logged_in}}
 <div class="col-lg-4 col-md-12 col-sm-6 my-5 div-intro">
   <h1 class="home-title">ASK AND ANSWER</h1>
   <p class="title-info "> <strong>{{title}}</strong> is a place where individuals can come to ask the technical question or
           contribute the answer to the question being asked by the other user.</p>  
-          <br> {{#unless logged_in}}
+          <br> 
         <a class="btn btn-success signup signup-btn getstarted "
                 href="/signup"
                 role="button"
-              >Sign Up</a>
-              {{/unless}}
+              >Sign Up</a>     
 </div>
+ {{/unless}}
 <!-- div to hold the fade in fade out image with class content -->
+{{#if logged_in}}
+<div class=" div-intro my-2">
+ <h1 class="home-title text-center ">Wel Come {{username}}</h1></div>
+ {{/if}}
 <div class="image-div col-lg-8 col-sm-6" ></div>
 </div>
-<br />
-  <br>
 
-
-{{!-- <div class="container text-left quote">Sharing knowledge is the most fundamental
-  act of friendship. Because it is a way you can give something without loosing
-  something.<strong> -Richard Stallman</strong></div> --}}

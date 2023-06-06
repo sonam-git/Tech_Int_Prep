@@ -6,6 +6,10 @@ const newFormandler = async function (event) {
   const title = document.querySelector('input[name="post-title"]').value;
   const body = document.querySelector('textarea[name="post-body"]').value;
   console.log("body=", body);
+  // display alert if empty input
+  if (!title|| !body) {
+    return alert('Question and Answer must be provided');
+  }
   // The fetch() function is used to send a POST request to the "/api/post" endpoint.
   await fetch("/api/posts/new", {
     method: "POST",

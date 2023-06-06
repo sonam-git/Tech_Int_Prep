@@ -57,6 +57,7 @@ p.title-info{
   margin-left: 20px;
   text-align: justify;
   margin-top: 15px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 /* Hero image fade in fade out display styling */
 .image-div {
@@ -107,13 +108,18 @@ p.title-info{
 /* custom navbar styling */
  .navbar{
     background-color: rgb(8, 71, 62);
+    border-bottom: 1px dashed white;
  }
 
  .navbar-text,
  .navbar-brand,
  .nav-link,
  .nav-link.active{
-    color:white
+    color:white 
+ }
+ .nav-link{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: larger;
  }
  .nav-link:hover{
   text-decoration: underline 3px white;
@@ -206,6 +212,7 @@ p.updateText{
   position: absolute;
   width: 100%;
   height: 2.5rem; /* Adjust this value to set the footer's height */
+  color:white;
 }
 
 /********** Media Queries ***********/
@@ -215,6 +222,7 @@ p.updateText{
   .row {
     display: flex;
     flex-direction: column-reverse;
+    gap: 5px;
     margin :auto;
     margin-top: 0 !important;
   }
@@ -228,26 +236,30 @@ p.updateText{
   order: 2;
   margin-bottom: 15px;
   padding: 10px;
-  height: 250px;
-  width: 350px;
+  height: 450px;
+  width: 450px;
 }
 
 h1.home-title{
   font-size: 2rem;
   text-align: center;
-
+  -webkit-text-fill-color:white;
+  -webkit-text-stroke-width: 1px;
+  text-shadow:1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
 }
 p.title-info{
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-align: center;
+  color:white;
 }
 .content{
   padding: 10px;
 }
-.logout-btn {
+.logout-btn, .login-btn, .signup-btn {
   margin-left: 0;
   width: fit-content;
   margin-bottom: 10;
+  margin-top: 10px;
 }
 .btn-dashboard {
   display: flex;
@@ -256,7 +268,7 @@ p.title-info{
     width: 100%;
 }
 .div-intro{
-  background-color: rgb(155, 209, 178);
+  background-color: rgb(156, 124, 168);
   padding: 15px;
   border-radius: 15px;
   box-shadow: 8px 3px 3px #2b1d3c;
@@ -307,9 +319,8 @@ p.title-info{
   margin: auto;
 }
 .login-btn {
-  width: 200px;
+  width: fit-content;
   margin-left: 0;
-  margin-top: 15px;
 }
 .logout-btn {
   margin-left: 0;

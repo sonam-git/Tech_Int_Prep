@@ -13,6 +13,7 @@ router.get("/", async (req, res) => {
     res.render("home", {
       layouts: "main",
       title: "Tech Int Prep",
+      username: req.session.username,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -47,29 +48,6 @@ router.get("/aboutUs", async (req, res) => {
   try {
     res.render("aboutUs", {
       layouts: "main",
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// handles the GET request for the "/myDashboard" page.
-router.get("/myDashboard", async (req, res) => {
-  try {
-    // retrieves all posts from the database, including their associated users
-    const postData = await Post.findAll({
-      include: [User],
-    });
-
-    const posts = postData
-      .map((post) => post.get({ plain: true }))
-      .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); //The sort method is used to sort the posts array based on the createdAt property.
-
-    // The retrieved data is then passed to the "myDashboard" view along with the "dashboard" layout and the "logged_in" flag.
-    res.render("myDashboard", {
-      posts,
-      layouts: "dashboard",
       logged_in: req.session.logged_in,
     });
   } catch (err) {

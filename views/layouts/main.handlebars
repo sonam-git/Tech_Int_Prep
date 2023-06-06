@@ -67,14 +67,12 @@
             </li>
 
             {{#if logged_in}}
-              <li class="nav-item">
-                <a class="nav-link" href="/myDashboard">Dashboard</a>
-              </li>
+              <li class="nav-item"><a
+                  class="nav-link"
+                  href="/dashboard"
+                >Dashboard</a></li>
               <li class="nav-item"><a class="nav-link" href="/dashboard/new">Add
                   Question</a></li>
-
-              <li class="nav-item"><a class="nav-link" href="/dashboard">Edit
-                  Qestion</a></li>
               <br />
               <a
                 class="btn btn-success logout-btn log-btn"
@@ -83,17 +81,12 @@
                 role="button"
               >Log Out</a>
             {{else}}
+              <br />
               <a
                 class="btn btn-success login login-btn"
                 href="/login"
                 role="button"
               >Log In</a>
-              <br />
-              {{! <a
-                class="btn btn-success signup signup-btn"
-                href="/signup"
-                role="button"
-              >Sign Up</a> }}
             {{/if}}
           </ul>
         </div>
@@ -107,8 +100,8 @@
       </div>
       <footer class="footer" id="footer">
         <p class="container text-center">
-          <strong>Copyright &copy; All rights reserved by Tech Int Prep Team
-            2023</strong><a
+          <strong>Copyright &copy;</strong> All rights reserved by Tech Int Prep Team
+            2023<a
             href="https://github.com/sonam-git/Tech_Int_Prep"
             target="_blank"
           ><i class="fa-brands fa-github fa-xl mx-2"></i></a>

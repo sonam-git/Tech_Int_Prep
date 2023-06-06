@@ -6,8 +6,8 @@
       <div class="card-header flex-row justify-space-between">
         <h4>{{post.title}}</h4>
         <div>
-          Posted by
-          {{post.user.username}}
+          Posted by <strong>
+          {{post.user.username}}</strong>
           on
           {{format_date post.createdAt}}
         </div>
@@ -28,7 +28,6 @@
           class="btn btn-primary like-button"
           data-post-id="{{post.id}}"
         >Like 👍</button>
-        
       </div>
     </div>
   </div>
@@ -48,7 +47,7 @@
               <br />
               
                 {{#if isUpdated}}
-                <p class="comment">Posted by:
+                <p class="comment">Posted by:  
                 {{user.username}} on
                 {{format_date createdAt}}</p>
                 <p class="comment" id="comment-date-{{id}}">Updated by:

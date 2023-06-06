@@ -9,7 +9,12 @@ const signupFormHandler = async (event) => {
     .toLowerCase();
   const password = document.querySelector("#password-signup").value.trim();
   // checks if both username and password have a truthy value
-  if (username && password) {
+  if (!username && !password){
+    Swal.fire({
+      icon: "error",
+      title: "Username and Password must be provided.",
+    });
+  } else {
     const response = await fetch("/api/users/signup", {
       method: "POST",
       body: JSON.stringify({

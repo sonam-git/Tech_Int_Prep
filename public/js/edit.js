@@ -7,6 +7,10 @@ const newFormhandler = async function (event) {
   const title = document.querySelector('input[name="post-title"]').value;
   const body = document.querySelector('textarea[name="post-body"]').value;
   console.log(body);
+  // display alert if empty input
+  if (!title|| !body) {
+    return alert('Question and Answer must be provided');
+  }
   // sends a request(PUT) to server using fetch method
   await fetch(`/api/posts/${post_id}`, {
     method: "PUT",

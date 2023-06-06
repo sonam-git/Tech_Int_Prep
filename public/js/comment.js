@@ -8,6 +8,10 @@ const commentFormHandler = async function (event) {
   const comment_text = document.querySelector(
     'input[name="comment-body"]'
   ).value;
+  // if empty comment is added
+  if (!comment_text ) {
+    return alert('Comment must be provided');
+  }
 
   console.log(comment_text);
   console.log(post_id);
@@ -137,8 +141,11 @@ updateButtons.forEach((button) => {
           // Hide the message after 3 seconds
           setTimeout(() => {
             messageContainer.innerHTML = "";
+               // replaces the current page location with /dashboard.
+           document.location.reload();
+  
           }, 3000);
-         
+  
         } else {
           throw new Error("Failed to update comment");
         }

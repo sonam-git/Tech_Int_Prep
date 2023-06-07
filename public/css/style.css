@@ -60,6 +60,9 @@ p.title-info{
   margin-top: 15px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+p.comment{
+  color:green;
+}
 /* Hero image fade in fade out display styling */
 .image-div {
     box-shadow: 8px 3px 3px #2b1d3c;

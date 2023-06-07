@@ -71,7 +71,6 @@
             <li class="nav-item">
               <a class="nav-link" href="/aboutUs">About Us</a>
             </li>
-
             {{#if logged_in}}
               <li class="nav-item"><a
                   class="nav-link"
@@ -79,17 +78,15 @@
                 >Dashboard</a></li>
               <li class="nav-item"><a class="nav-link" href="/dashboard/new">Add
                   Question</a></li>
-              <br />
               <a
-                class="btn btn-success logout-btn log-btn"
+                class="btn btn-success logout-btn log-btn  my-2"
                 id="logout-link"
                 href="#"
                 role="button"
               >Log Out</a>
             {{else}}
-              <br />
               <a
-                class="btn btn-success login login-btn"
+                class="btn btn-success login login-btn my-2"
                 href="/login"
                 role="button"
               >Log In</a>
@@ -108,14 +105,14 @@
        <footer class="footer">
         <div class="container">
           <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-5 ">
               <p class="mt-2" style="color:white; font-size: 18px;">&copy;
                 {{2023}}
                 Tech Int Prep Team. All rights reserved.</p>
             </div>
-            <div class="col-lg-7">
+            <div class="col-lg-7 ">
               <div
-                class="d-flex flex-lg-row flex-sm-column justify-content-lg-end p-2"
+                class="d-flex flex-lg-row flex-sm-column flex-md-row justify-content-lg-end justify-content-md-center p-2"
               >
                <a href="/aboutUs"> <button
                   class="btn btn-primary mx-2"

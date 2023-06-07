@@ -223,7 +223,7 @@ p.updateText{
   bottom: 0;
   width: 100%;
   background-color: #8c8392;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -294,11 +294,12 @@ p.title-info{
     margin-top: 0 !important;
    
   }
-  
+
   .col-lg-4 {
     order: 1;
     text-align: center;
     margin: auto;
+    padding-bottom: 50px;
   }
   
   .image-div {

@@ -266,6 +266,7 @@ p.title-info{
 }
 .content{
   padding: 10px;
+  margin-bottom: 120px;
 }
 .logout-btn, .login-btn, .signup-btn {
   margin-left: 0;

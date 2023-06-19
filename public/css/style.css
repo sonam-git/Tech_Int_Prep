@@ -295,7 +295,11 @@ p.title-info{
     margin-top: 0 !important;
    
   }
-
+  .content {
+    padding-bottom: 2.5rem;
+    width: 650;
+    margin: auto;
+}
   .col-lg-4 {
     order: 1;
     text-align: center;

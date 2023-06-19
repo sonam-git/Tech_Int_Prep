@@ -1,5 +1,4 @@
 // ############################## Function to handle like button  ##############################################
-
 const handleLike = async (postId) => {
   try {
     // Send a POST request to the server endpoint that handles post likes
@@ -21,7 +20,7 @@ const handleLike = async (postId) => {
       // Disable the like button after clicking
       const likeButton = document.getElementById("likeButton");
       likeButton.style.display = 'none';
-      
+
       localStorage.setItem(`${window.location.pathname}`, "liked");
 
       // Display the "Thanks for liking the post" message
@@ -46,13 +45,17 @@ const handleLike = async (postId) => {
     console.error("Error liking post:", error);
   }
 };
-// Add event listener to the like button
+
+// Add event listener to the like button if it exists
 const likeButton = document.getElementById("likeButton");
-if (localStorage.getItem(`${window.location.pathname}`)) {
-  likeButton.style.display = 'none';
-} else {
-  likeButton.addEventListener("click", () => {
-    const postId = likeButton.getAttribute("data-post-id");
-    handleLike(postId);
-  });
+if (likeButton) {
+  if (localStorage.getItem(`${window.location.pathname}`)) {
+    likeButton.style.display = 'none';
+  } else {
+    likeButton.addEventListener("click", () => {
+      const postId = likeButton.getAttribute("data-post-id");
+      handleLike(postId);
+    });
+  }
 }
+

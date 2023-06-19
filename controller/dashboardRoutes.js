@@ -5,7 +5,7 @@ const withAuth = require("../utils/auth");
 
 // GET route that handles the root path ("/"). It requires authentication using the withAuth middleware.
 router.get("/", withAuth, async (req, res) => {
-  console.log(req.session);
+  console.log('line 8 dashboard routes' ,req.session);
   try {
     //  fetches all posts from the database, including their associated users.
     const postData = await Post.findAll({

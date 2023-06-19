@@ -20,7 +20,7 @@ const loginFormHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
     // Log the username and password values for debugging purposes
-    console.log("FIND THIS", usernameEl.value, passwordEl.value);
+    // console.log("FIND THIS", usernameEl.value, passwordEl.value);
     if (response.ok) {
       console.log("response", response);
       // If login is successful, redirect to the dashboard

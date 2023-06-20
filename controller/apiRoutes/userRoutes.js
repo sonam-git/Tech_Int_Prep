@@ -4,16 +4,13 @@ const { User } = require("../../models");
 
 // This route handles the creation of a new user when a POST request is made to the root path ("/")
 router.post("/signup", async (req, res) => {
+  
   try {
     // uses the User.create() method to create a new user with the data provided in the request body.
     const userData = await User.create(req.body);
     // If the user creation is successful, the user ID and login status are saved in the session
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-      // and the userData is returned as a response.
-      res.status(200).json(userData);
-    });
+    req.session.save();
+    res.redirect('/login')
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
